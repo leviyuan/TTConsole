@@ -286,7 +286,7 @@ namespace TinyTeam.Debuger
                     if (messageType == MessageType.SYSTEM || messageType == MessageType.OUTPUT || messageType == MessageType.INPUT || messageType == MessageType.UNITY)
                         this.text = messageObject.ToString();
                     else
-                        this.text = "[" + DateTime.Now.ToLongTimeString() + "] " + messageObject.ToString();
+                        this.text = DateTime.Now.ToString("HH:mm:ss.fff") + "-" + Time.frameCount + ":" + messageObject.ToString();
                 }
 
                 // add customtype to the beginning.
@@ -1476,11 +1476,11 @@ namespace TinyTeam.Debuger
                 return null;
 
             // control output to unity console first!
-            if (isEditor && string.IsNullOrEmpty(customType) == false)
+            if (isEditor)
             {
-                if (Console.Instance._outputToUnityMsgType.Contains(customType.ToLower()) || string.IsNullOrEmpty(customType))
+                if (string.IsNullOrEmpty(customType) || Console.Instance._outputToUnityMsgType.Contains(customType.ToLower()))
                 {
-                    Debug.Log("[" + customType + "]" + message);
+                    Debug.Log(DateTime.Now.ToString("HH:mm:ss.fff") + "-" + Time.frameCount + ": " + (string.IsNullOrEmpty(customType) ? "" : ("[" + customType + "]")) + message);
                     return message;
                 }
             }
@@ -1496,11 +1496,11 @@ namespace TinyTeam.Debuger
                 return null;
 
             // control output to unity console first!
-            if (isEditor && string.IsNullOrEmpty(customType) == false)
+            if (isEditor)
             {
-                if (Console.Instance._outputToUnityMsgType.Contains(customType.ToLower()) || string.IsNullOrEmpty(customType))
+                if (string.IsNullOrEmpty(customType) || Console.Instance._outputToUnityMsgType.Contains(customType.ToLower()))
                 {
-                    Debug.Log("[" + customType + "]" + message);
+                    Debug.Log(DateTime.Now.ToString("HH:mm:ss.fff") + "-" + Time.frameCount + ": " + (string.IsNullOrEmpty(customType) ? "" : ("[" + customType + "]")) + message);
                     return message;
                 }
             }
@@ -1526,11 +1526,11 @@ namespace TinyTeam.Debuger
                 return null;
 
             // control output to unity console first!
-            if (isEditor && string.IsNullOrEmpty(customType) == false)
+            if (isEditor)
             {
-                if (Console.Instance._outputToUnityMsgType.Contains(customType.ToLower()) || string.IsNullOrEmpty(customType))
+                if (string.IsNullOrEmpty(customType) || Console.Instance._outputToUnityMsgType.Contains(customType.ToLower()))
                 {
-                    Debug.LogWarning("[" + customType + "]" + message);
+                    Debug.LogWarning(DateTime.Now.ToString("HH:mm:ss.fff") + "-" + Time.frameCount + ": " + (string.IsNullOrEmpty(customType) ? "" : ("[" + customType + "]")) + message);
                     return message;
                 }
             }
@@ -1546,11 +1546,11 @@ namespace TinyTeam.Debuger
                 return null;
 
             // control output to unity console first!
-            if (isEditor && string.IsNullOrEmpty(customType) == false)
+            if (isEditor)
             {
-                if (Console.Instance._outputToUnityMsgType.Contains(customType.ToLower()) || string.IsNullOrEmpty(customType))
+                if (string.IsNullOrEmpty(customType) || Console.Instance._outputToUnityMsgType.Contains(customType.ToLower()))
                 {
-                    Debug.LogError("[" + customType + "]" + message);
+                    Debug.LogError(DateTime.Now.ToString("HH:mm:ss.fff") + "-" + Time.frameCount + ": " + (string.IsNullOrEmpty(customType) ? "" : ("[" + customType + "]")) + message);
                     return message;
                 }
             }
