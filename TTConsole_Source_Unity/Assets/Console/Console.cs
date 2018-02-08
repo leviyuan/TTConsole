@@ -1478,7 +1478,7 @@ namespace TinyTeam.Debuger
             // control output to unity console first!
             if (isEditor && string.IsNullOrEmpty(customType) == false)
             {
-                if (Console.Instance._outputToUnityMsgType.Contains(customType.ToLower()))
+                if (Console.Instance._outputToUnityMsgType.Contains(customType.ToLower()) || string.IsNullOrEmpty(customType))
                 {
                     Debug.Log("[" + customType + "]" + message);
                     return message;
@@ -1498,7 +1498,7 @@ namespace TinyTeam.Debuger
             // control output to unity console first!
             if (isEditor && string.IsNullOrEmpty(customType) == false)
             {
-                if (Console.Instance._outputToUnityMsgType.Contains(customType.ToLower()))
+                if (Console.Instance._outputToUnityMsgType.Contains(customType.ToLower()) || string.IsNullOrEmpty(customType))
                 {
                     Debug.Log("[" + customType + "]" + message);
                     return message;
@@ -1528,7 +1528,7 @@ namespace TinyTeam.Debuger
             // control output to unity console first!
             if (isEditor && string.IsNullOrEmpty(customType) == false)
             {
-                if (Console.Instance._outputToUnityMsgType.Contains(customType.ToLower()))
+                if (Console.Instance._outputToUnityMsgType.Contains(customType.ToLower()) || string.IsNullOrEmpty(customType))
                 {
                     Debug.LogWarning("[" + customType + "]" + message);
                     return message;
@@ -1548,7 +1548,7 @@ namespace TinyTeam.Debuger
             // control output to unity console first!
             if (isEditor && string.IsNullOrEmpty(customType) == false)
             {
-                if (Console.Instance._outputToUnityMsgType.Contains(customType.ToLower()))
+                if (Console.Instance._outputToUnityMsgType.Contains(customType.ToLower()) || string.IsNullOrEmpty(customType))
                 {
                     Debug.LogError("[" + customType + "]" + message);
                     return message;
