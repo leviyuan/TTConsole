@@ -1905,7 +1905,7 @@ namespace TinyTeam.Debuger
         }
 
         ///writing
-        void RunningAsyncWritingLog()
+        void RunningAsyncWritingLog(System.Object _)
         {
             while (true)
             {
